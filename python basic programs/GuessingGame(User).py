@@ -21,7 +21,9 @@ def guess(x): #defines the function of guess(the program for the game)
     
     print(f"yay! you got {random_num} correct!") #prints when the number is guessed correctly.
         
-        
+
+#guess(10) #uncomment out this portion to guess the computers number
+
 def computers_guess(x): #code for having the computer guess a number that we are thinking of
     
     lownum = 1
@@ -51,5 +53,5 @@ def computers_guess(x): #code for having the computer guess a number that we are
     print(f"the computer guessed {guess} correctly!!")
 
 
-computers_guess(10)
+computers_guess(100) #this number can be set to whatever you want the upper limit of numbers to be(example 10000) #comment out computer_guess() to guess the computers number
 
