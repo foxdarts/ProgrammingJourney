@@ -1,4 +1,4 @@
-#this program takes a number from the user and has 
+#this program has the computer try to guess a number that the user is thinking of
 
 import random #imports the random package included in python
 
@@ -36,11 +36,11 @@ def computers_guess(x): #code for having the computer guess a number that we are
             
         else:
             
-            guess = low #could also be set to high
+            guess = lownum #could also be set to high
         
         feedback = input(f"is {guess} to high? (H), too low? (L), or correct? (C) ").lower() #this is the code that lets the user know what to enter to tell the computer which direction to move its guess
         
-        if feeback == "h":
+        if feedback == "h":
             
             highnum = guess -1 #means the guess was to high
             
