@@ -11,19 +11,16 @@ def guess(x): #defines the function of guess(the program for the game)
 
     
     while guess != random_num: #while loop runs untill the number guessed is the number the computer generated
-       
         guess = int(input(f"guess a Number between 1 and {x} ")) #prompts user for a number between 1 and x
        
         if guess < random_num:
-            
             print("guess is to low. aim higher.") #tells the user if guessed number is to low
             
         elif guess > random_num:
-            
             print("guess again. this time lower.") #tells the user if the guessed number is to high
-            
+    
     print(f"yay! you got {random_num} correct!") #prints when the number is guessed correctly.
         
 
-guess(15)
+guess(10)
 
