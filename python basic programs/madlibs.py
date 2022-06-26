@@ -10,3 +10,11 @@
 
 # print(f"subscribe to {vtuber}") #and you guessed it. another way to print the same info. adds format before and places variable into curly braces.
 
+#mablib starts here.  before pieces are to explain and provide insight
+adjective = input("please provide a Adjective: ")
+verb1 = input("Please provide a verb: ")
+verb2 = input("Please provide a second verb: ")
+fperson = input("Please provide the name of someone famous: ")
+
+
+mablib = f"computer programming is so {adjective}! it is very funand makes me excited.  i love to {verb1}! please stay hydrated and {verb2} just like {fperson} loves to do!"
