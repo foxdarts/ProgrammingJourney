@@ -17,6 +17,6 @@ verb2 = input("Please provide a second verb: ") #asks the user to supply another
 fperson = input("Please provide the name of someone famous: ") #asks the user for the name of a famous person as the actor within thier madlib!
 
 
-mablib = f"computer programming is so {adjective}! it is very funand makes me excited.  i love to {verb1}! please stay hydrated and {verb2} just like {fperson} loves to do!" #this is the code for the madlib that takes user input and has them create a story!
+madlib = f"computer programming is so {adjective}! it is very fun and makes me excited.  i love to {verb1}! please stay hydrated and {verb2} just like {fperson} loves to do!" #this is the code for the madlib that takes user input and has them create a story!
 
-print("madlib") #prints the mablib
+print(madlib) #prints the mablib
