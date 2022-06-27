@@ -10,7 +10,7 @@ def get_usable_word(words): #this fuction takes your list of words and chooses o
         
         word = random.choice(words)
         
-    return word
+    return word.upper()
 
 
 def Game(): #this is the logic for the game
@@ -41,6 +41,7 @@ def Game(): #this is the logic for the game
             if user_letter in word_letters:
             
                 word_letters.remove(user_letter)
+                print('')
             
         elif user_letter in guessed_letters: #this is for if someone enters the same character more than once.
         
@@ -52,6 +53,5 @@ def Game(): #this is the logic for the game
         
     
     
-    
-    
-#user_input = input('please guess a letter: ')
+if __name__ == '__main__':
+    Game() #this runs the game
