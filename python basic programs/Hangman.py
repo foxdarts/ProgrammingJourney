@@ -23,23 +23,32 @@ def Game(): #this is the logic for the game
     
     guessed_letters = set() #this is the variable of letters the user has guessed.
     
-    user_letter = input("guess a letter: ").upper() #takes user input and makes the character uppercase.
-    
-    if user_letter in alphabet - guessed_letters: #takes the input for a guessed letter and adds it to the set of guessed letters
+    #game loop starts here
+    while len(word_letters) > 0:
         
-        guessed_letters.add(user_letter)
+        print("Guessed Letters: ", " ".join(guessed_letters)) #prints the guessed letters in a string seperated by spaces
+        
+        word_list = [letter if letter in guessed_letters else '-' for letter in word] #shows the word as dashes for each non guessed letter
+        
+        print("Word your trying to guess: ", " ".join(word_list)) #prints the word that user is trying to guess as dashes.
+        
+        user_letter = input("guess a letter: ").upper() #takes user input and makes the character uppercase.
+    
+        if user_letter in alphabet - guessed_letters: #takes the input for a guessed letter and adds it to the set of guessed letters
+        
+            guessed_letters.add(user_letter)
         
         if user_letter in word_letters:
             
             word_letters.remove(user_letter)
             
-    elif user_letter in guessed_letters: #this is for if someone enters the same character more than once.
+        elif user_letter in guessed_letters: #this is for if someone enters the same character more than once.
         
-        print("that letter has already been guesed.  try a different one?")
+            print("that letter has already been guesed.  try a different one?")
         
-    else: #this is for if something other than a letter is entered
+        else: #this is for if something other than a letter is entered
         
-        print("that character isnt a valid letter.  please try a actual english character")
+            print("that character isnt a valid letter.  please try a actual english character")
         
     
     
