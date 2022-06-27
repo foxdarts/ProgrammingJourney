@@ -38,9 +38,9 @@ def Game(): #this is the logic for the game
         
             guessed_letters.add(user_letter)
         
-        if user_letter in word_letters:
+            if user_letter in word_letters:
             
-            word_letters.remove(user_letter)
+                word_letters.remove(user_letter)
             
         elif user_letter in guessed_letters: #this is for if someone enters the same character more than once.
         
