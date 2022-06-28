@@ -35,4 +35,28 @@ class HumanPlayer(Player):
         
     def get_move(self, game):
         
-        pass
+        playable_square = False #sets playable squares to false
+        
+        value = None #this is the value input by the user. starts as none because they havent palyed yet
+        
+        while not playable_square: #provides logic for the game to check for where the player cant play
+            
+            square = input(self.letter + "\'s turn input move (0-9): ") #pulls input from the user
+            
+            try: #tries to put input of int into a game square.
+                
+                value = int(square)
+                
+                if value not in tttgame.playable_moves(): 
+                    
+                    raise ValueError #if the square cant be cast to a number then we get an error
+                
+                playable_square = True
+                
+            except ValueError: #if we get a value error allows user to try again
+                
+                print("move invalid please select again")
+                
+        return value
+            
+            
