@@ -29,7 +29,7 @@ def Game(): #this is the logic for the game
     #game loop starts here
     while len(word_letters) > 0 and chances > 0:  #loop runs till word is guess or chances hit 0 whichever happens first :).
         
-        print("you have ", chances, "left and have Guessed these Letters: ", " ".join(guessed_letters)) #prints the guessed letters in a string seperated by spaces
+        print("you have ", chances, "chances left to guess this word and have Guessed these Letters: ", " ".join(guessed_letters)) #prints the guessed letters in a string seperated by spaces
         
         word_list = [letter if letter in guessed_letters else '-' for letter in word] #shows the word as dashes for each non guessed letter
         
@@ -48,15 +48,15 @@ def Game(): #this is the logic for the game
                 
             else:
                 chances = chances -1 #takes away a chance a ta guess for each missed letter.
-                print("\nthat letter isnt in this word. next?")
+                print("\nthat letter isnt in this word. next?\n")
             
         elif user_letter in guessed_letters: #this is for if someone enters the same character more than once.
         
-            print("that letter has already been guesed.  try a different one?")
+            print("that letter has already been guesed.  try a different one?\n")
         
         else: #this is for if something other than a letter is entered
         
-            print("that character isnt a valid letter.  please try a actual english character")
+            print("that character isnt a valid letter.  please try a actual english character\n")
     if chances == 0:
         
         print("you didnt guess ", word, "correctly :( better luck next time!")
