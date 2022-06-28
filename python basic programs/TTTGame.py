@@ -1,4 +1,6 @@
 #this is a game for tic-tac-toe
+
+import time
 from players import HumanPlayer, ComputerPlayer
 
 class TicTacToe:
@@ -47,7 +49,7 @@ class TicTacToe:
     
     def make_move(self, square, letter): #gives us the move for a player to a square and the letter for that player.  
         
-        if self.board[square] = " ": #if the square is empty
+        if self.board[square] == " ": #if the square is empty
             
             self.board[square] = letter #assign player letter to square
             
@@ -103,33 +105,33 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
     
     if print_game_board:
         
-        tttgame.print_board_numbers() #if print_game_board is true it prints the game board. little logic :)
+        playgame.print_board_numbers() #if print_game_board is true it prints the game board. little logic :)
         
     letter = 'X' #starts the game with a move from x player
     
     
-    while tttgame.open_square(): #loop that plays the game
+    while playgame.open_square(): #loop that plays the game
         
         if letter == "O":
             
-            square = o_player.get_move(tttgame) #tells the o player to play
+            square = o_player.get_move(playgame) #tells the o player to play
             
         else:
             
-            square = x_player.get_move(tttgame) #tells the x player to play
+            square = x_player.get_move(playgame) #tells the x player to play
             
         
-        if tttgame.make_move(square, letter):
+        if playgame.make_move(square, letter):
             
             if print_game_board:
                 
                 print(letter + f" makes a move to square {square}") 
                 
-                tttgame.print_board() #prints game board with move filled in
+                playgame.print_board() #prints game board with move filled in
                 
                 print(" ") #provides empty live after game board.
                 
-            if tttgame.is_winner: #checks for win condition
+            if playgame.is_winner: #checks for win condition
                 
                 if print_game_board:
                     
@@ -139,9 +141,11 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
                 
             letter = "o" if letter == "X" else "X" #check to see if x or o was palyed and switches players accordingly.
             
-        if print_game_board:
+        time.sleep(2.0) #adds short time break between user moves and computer move
             
-            print("it is a tie. no winner this game")
+    if print_game_board:
+            
+        print("it is a tie. no winner this game")
             
             
 if __name__ == '__main__': #runs the file
@@ -152,7 +156,7 @@ if __name__ == '__main__': #runs the file
     
     tgame = TicTacToe() #rums the loops for the game
     
-    playgame(t, x_player, o_player, print_game_board=True)
+    playgame(tgame, x_player, o_player, print_game_board=True)
     
     
             

@@ -22,7 +22,7 @@ class ComputerPlayer(Player): #this is for a computer player that inherits base 
         
     def get_move(self, game):
         
-        square = random.choice(TTTGame.playable_moves()) #this feeds the playable moves in for the computer to choose one
+        square = random.choice(playgame.playable_moves()) #this feeds the playable moves in for the computer to choose one
         
         return square #"plays" the move for the computer
     
@@ -41,13 +41,13 @@ class HumanPlayer(Player):
         
         while not playable_square: #provides logic for the game to check for where the player cant play
             
-            square = input(self.letter + "\'s turn input move (0-9): ") #pulls input from the user
+            square = input(self.letter + "\'s turn input move (0-8): ") #pulls input from the user
             
             try: #tries to put input of int into a game square.
                 
                 value = int(square)
                 
-                if value not in tttgame.playable_moves(): 
+                if value not in playgame.playable_moves(): 
                     
                     raise ValueError #if the square cant be cast to a number then we get an error
                 
