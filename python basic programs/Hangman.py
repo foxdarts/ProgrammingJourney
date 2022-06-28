@@ -29,11 +29,11 @@ def Game(): #this is the logic for the game
     #game loop starts here
     while len(word_letters) > 0 and chances > 0:  #loop runs till word is guess or chances hit 0 whichever happens first :).
         
-        print("you have ", chances, "chances left to guess this word and have Guessed these Letters: ", " ".join(guessed_letters)) #prints the guessed letters in a string seperated by spaces
+        print("\nyou have ", chances, "chances left to guess this word and have Guessed these Letters: ", " ".join(guessed_letters)) #prints the guessed letters in a string seperated by spaces
         
         word_list = [letter if letter in guessed_letters else '-' for letter in word] #shows the word as dashes for each non guessed letter
         
-        print("Word your trying to guess: ", " ".join(word_list)) #prints the word that user is trying to guess as dashes.
+        print("\nWord your trying to guess: ", " ".join(word_list)) #prints the word that user is trying to guess as dashes.
         
         user_letter = input("guess a letter: ").upper() #takes user input and makes the character uppercase.
     
