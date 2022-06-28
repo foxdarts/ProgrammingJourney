@@ -105,33 +105,33 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
     
     if print_game_board:
         
-        playgame.print_board_numbers() #if print_game_board is true it prints the game board. little logic :)
+        game.print_board_numbers() #if print_game_board is true it prints the game board. little logic :)
         
     letter = 'X' #starts the game with a move from x player
     
     
-    while playgame.open_square(): #loop that plays the game
+    while game.open_square(): #loop that plays the game
         
         if letter == "O":
             
-            square = o_player.get_move(playgame) #tells the o player to play
+            square = o_player.get_move(game) #tells the o player to play
             
         else:
             
-            square = x_player.get_move(playgame) #tells the x player to play
+            square = x_player.get_move(game) #tells the x player to play
             
         
-        if playgame.make_move(square, letter):
+        if game.make_move(square, letter):
             
             if print_game_board:
                 
                 print(letter + f" makes a move to square {square}") 
                 
-                playgame.print_board() #prints game board with move filled in
+                game.print_board() #prints game board with move filled in
                 
                 print(" ") #provides empty live after game board.
                 
-            if playgame.is_winner: #checks for win condition
+            if game.is_winner: #checks for win condition
                 
                 if print_game_board:
                     

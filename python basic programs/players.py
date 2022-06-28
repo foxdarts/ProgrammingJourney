@@ -22,7 +22,7 @@ class ComputerPlayer(Player): #this is for a computer player that inherits base 
         
     def get_move(self, game):
         
-        square = random.choice(playgame.playable_moves()) #this feeds the playable moves in for the computer to choose one
+        square = random.choice(game.playable_moves()) #this feeds the playable moves in for the computer to choose one
         
         return square #"plays" the move for the computer
     
@@ -47,7 +47,7 @@ class HumanPlayer(Player):
                 
                 value = int(square)
                 
-                if value not in playgame.playable_moves(): 
+                if value not in game.playable_moves(): 
                     
                     raise ValueError #if the square cant be cast to a number then we get an error
                 
