@@ -11,7 +11,7 @@ class TicTacToe:
         self.is_winner = None #this is used to keep track of who won
         
         
-    def print_Board(self):
+    def print_board(self):
         
         for row in [self.board[i * 3 : (i + 1) * 3] for i in range(3)]: #this creates and prints the 3 x 3 board for tictactoe
             print('| ' + ' | '.join(row) + ' |') #this sets the "boarder" for the game squares
@@ -53,7 +53,7 @@ class TicTacToe:
             
             self.board[square] = letter #assign player letter to square
             
-            if self.is_winner(square, letter): #checks if the last move won the game
+            if self.winner(square, letter): #checks if the last move won the game
                 
                 self.is_winner = letter #declares the last played letter the winner
             
@@ -76,7 +76,7 @@ class TicTacToe:
         
         coloum_indexer = square % 3
         
-        coloum = [self.board[coloum_indexer + i + 3] for i in range(3)] #checks the coloums for win condition
+        coloum = [self.board[coloum_indexer + i * 3] for i in range(3)] #checks the coloums for win condition
         
         if all([place == letter for place in coloum]):
             
@@ -110,7 +110,7 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
     letter = 'X' #starts the game with a move from x player
     
     
-    while game.open_square(): #loop that plays the game
+    while game.open_squares(): #loop that plays the game
         
         if letter == "O":
             
@@ -139,9 +139,9 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
                     
                 return letter #prints out winner using last letter palyed
                 
-            letter = "o" if letter == "X" else "X" #check to see if x or o was palyed and switches players accordingly.
+            letter = "O" if letter == "X" else "X" #check to see if x or o was palyed and switches players accordingly.
             
-        time.sleep(2.0) #adds short time break between user moves and computer move
+        time.sleep(0.5) #adds short time break between user moves and computer move
             
     if print_game_board:
             
@@ -150,7 +150,7 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
             
 if __name__ == '__main__': #runs the file
     
-    x_player = HumanPlayer('X') #sets the user input to x.
+    x_player = HumanPlayer("X") #sets the user input to x.
     
     o_player = ComputerPlayer("O") #sets computer player to o.
     

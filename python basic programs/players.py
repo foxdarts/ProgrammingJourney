@@ -4,21 +4,21 @@ import math
 import random
 
 class Player:
-    def __init(self, letter):
+    def __init__(self, letter):
         
         self.letter = letter #this allows us to call a x and an o player
         
     
     def get_move(self, game):
         
-        pass 
+        pass #moves game along to next player
         
 
 class ComputerPlayer(Player): #this is for a computer player that inherits base player attributes
     
-    def __init(self, letter):
+    def __init__(self, letter):
         
-        super().__init(letter)
+        super().__init__(letter)
         
     def get_move(self, game):
         
@@ -29,9 +29,9 @@ class ComputerPlayer(Player): #this is for a computer player that inherits base 
     
 class HumanPlayer(Player):
     
-    def __init(self, letter):
+    def __init__(self, letter):
         
-        super().__init(letter)
+        super().__init__(letter)
         
     def get_move(self, game):
         
