@@ -74,7 +74,7 @@ class TicTacToe:
             
             return True #logic for row checker
         
-        coloum_indexer = square % 3
+        coloum_indexer = square % 3 #math for coloum equation
         
         coloum = [self.board[coloum_indexer + i * 3] for i in range(3)] #checks the coloums for win condition
         
@@ -140,8 +140,11 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
                 return letter #prints out winner using last letter palyed
                 
             letter = "O" if letter == "X" else "X" #check to see if x or o was palyed and switches players accordingly.
+        
+        
+        if print_game_board: #makes it so only if the game board is getting printed does the pause occur for the computer to make a move
             
-        time.sleep(0.5) #adds short time break between user moves and computer move
+            time.sleep(0.5) #adds short time break between user moves and computer move
             
     if print_game_board:
             
@@ -150,14 +153,33 @@ def playgame(game, x_player, o_player, print_game_board = True): #gets players. 
             
 if __name__ == '__main__': #runs the file
     
-    x_player = HumanPlayer("X") #sets the user input to x.
+    Xwins = 0 #can comment out these if playing against a friend
+    Owins = 0
+    Ties = 0
     
-    o_player = UnbeatableCompPlayer("O") #sets computer player to o.
+    for _ in range(1000): # Number of games that you want to play through.
+        
+        x_player = ComputerPlayer("X") #sets the user input to x.
     
-    tgame = TicTacToe() #rums the loops for the game
+        o_player = UnbeatableCompPlayer("O") #sets computer player to o.
     
-    playgame(tgame, x_player, o_player, print_game_board=True)
+        tgame = TicTacToe() #rums the loops for the game
     
+        results = playgame(tgame, x_player, o_player, print_game_board=False) #provides info for result of the number of games played for this set
+
+        if results == "X":
+            
+            Xwins += 1 #if x wins adds a count to xwins
+            
+        elif results == "O":
+        
+            Owins += 1 #if o wins adds a count to owins
+            
+        else:
+            
+            Ties += 1 #if it is a tie adds a count to ties
+            
+    print(f"Number of times x won: {Xwins}\n Number of times o won: {Owins}\n Number of Ties: {Ties}") #prints results 
     
             
         
