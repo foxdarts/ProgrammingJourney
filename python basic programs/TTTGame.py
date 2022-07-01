@@ -1,7 +1,7 @@
 #this is a game for tic-tac-toe
 
 import time #just used for a delay between user play and computer play
-from players import HumanPlayer, ComputerPlayer #this brings the logic from players into this file.
+from players import HumanPlayer, ComputerPlayer, UnbeatableCompPlayer #this brings the logic from players into this file.
 
 class TicTacToe:
     def __init__(self):
@@ -152,7 +152,7 @@ if __name__ == '__main__': #runs the file
     
     x_player = HumanPlayer("X") #sets the user input to x.
     
-    o_player = ComputerPlayer("O") #sets computer player to o.
+    o_player = UnbeatableCompPlayer("O") #sets computer player to o.
     
     tgame = TicTacToe() #rums the loops for the game
     

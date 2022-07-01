@@ -68,9 +68,9 @@ class UnbeatableCompPlayer(Player): #this is logic for a minmax computer player 
         
     def get_move(self, game): #logic for min max function included
         
-        if len(game.playable_square()) == 9: #if there is no move yet on the board the comp chooses a random place
+        if len(game.playable_moves()) == 9: #if there is no move yet on the board the comp chooses a random place
             
-            square = random.choice(game.playable_square())
+            square = random.choice(game.playable_moves())
             
         else: #uses the moves already played to minmax a way to not lose.
             
@@ -89,9 +89,9 @@ class UnbeatableCompPlayer(Player): #this is logic for a minmax computer player 
             
             #feed in position of moves and the score for minimax learning
             return {"position" : None, 
-                    "score" : 1 * (snapshot.num_open_square() + 1) if Opponent_player == Optimal_player else -1 * (snapshot.nun_open_squares() + 1)} #creates a dictionary for open squares on the board to get a win state with the most number of open squares left on the board.
+                    "score" : 1 * (snapshot.Count_open_Squares() + 1) if Opponent_player == Optimal_player else -1 * (snapshot.Count_open_Squares() + 1)} #creates a dictionary for open squares on the board to get a win state with the most number of open squares left on the board.
             
-        elif not snapshot.open_square(): #if there isnt a winner but empty squares still exist
+        elif not snapshot.open_squares(): #if there isnt a winner but empty squares still exist
             
             return {"position" : None,
                     "score" : 0} #score will be 0 (neutral as the win condition has not occured)
