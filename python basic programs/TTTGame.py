@@ -1,7 +1,7 @@
 #this is a game for tic-tac-toe
 
-import time
-from players import HumanPlayer, ComputerPlayer
+import time #just used for a delay between user play and computer play
+from players import HumanPlayer, ComputerPlayer #this brings the logic from players into this file.
 
 class TicTacToe:
     def __init__(self):
@@ -41,7 +41,7 @@ class TicTacToe:
         
     def open_squares(self):
         
-        return " " in self.board #sets the empty quesres in the board to a bool essentially.
+        return " " in self.board #sets the empty squares in the board to a bool essentially.
     
     def Count_open_Squares(self):
         
