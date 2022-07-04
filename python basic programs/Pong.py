@@ -1,6 +1,6 @@
 #this is a pong game wit ha turtle window!!
 
-from Imports import *
+import turtle
 
 
 
@@ -13,6 +13,14 @@ Game_Window.bgcolor("black") #sets the game window background(BG) to black
 Game_Window.setup(width = 800, height = 600) #gives us a 800x600 pixel window to start with
 
 Game_Window.tracer(0) #tracer lets us control the game speed using a manual update function.
+
+
+#score tracking
+Score_L = 0 #left score starts at 0
+
+Score_R = 0 #right score starts at 0
+
+
 
 #left paddle
 paddle_L = turtle.Turtle() #generates the paddle within the turtle window
@@ -59,9 +67,26 @@ ball.penup() #stops thiss object from drawing a line as it moves
 
 ball.goto(0, 0) #starts the paddle on the left side middle.
 
-ball.dx = .1 #sets the speed of the ball on the x cord
+ball.dx = .2 #sets the speed of the ball on the x cord
 
-ball.dy =.1 #sets speed of the ball on the y cord
+ball.dy =.2 #sets speed of the ball on the y cord
+
+
+#scoring pen
+pen = turtle.Turtle() #creates a trutle for the object
+
+pen.speed(0) #makes the animation speed infinite
+
+pen.color("green") #sets the color to green
+
+pen.penup() #makes it so there isnt a line drawn when the pen moves
+
+pen.hideturtle() #hides the turtle. dont wanna see it untill it is used.
+
+pen.goto(0, 260) #sets the score to upper right corner
+
+pen.write("Player A: 0  Player B: 0", align = "center", font = ("Courier", 24, "normal"))
+
 
 #movement functions
 def paddle_L_UP():
@@ -144,11 +169,38 @@ while True:
         
         ball.dx *= -1 #and starts ball heading the otherway.
         
+        Score_L += 1 #adds a point to the left person
+        
+        pen.clear() #wipes the score board and allows to write each point
+        
+        pen.write(f"Player A: {Score_L}  Player B: {Score_R}", align = "center", font = ("Courier", 24, "normal")) #changes the score for the correct person each time a point is scored.
+
+        
     if ball.xcor() < -390: #if the ball scores a point
         
         ball.goto(0, 0) #reset ball to 0
         
         ball.dx *= -1 #and starts ball heading the otherway.
+        
+        Score_R += 1 #adds ascore to the right person
+        
+        pen.clear() #wipes the score board and allows to write each point
+        
+        pen.write(f"Player A: {Score_L}  Player B: {Score_R}", align = "center", font = ("Courier", 24, "normal")) #changes the score for the correst person each time a point is scored.
+
     
     
+    #paddle collision logic
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_R.ycor() + 40 and ball.ycor() > paddle_R.ycor() - 40): #if the ball hits the paddle area and isnt behind the paddle
+        
+        ball.setx(340) #sets the ball a little bit more center
+        
+        ball.dx *= -1 #and changes direction
+    
+    
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_L.ycor() + 40 and ball.ycor() > paddle_L.ycor() - 40): #if the ball hits the paddle area and isnt behind the paddle
+        
+        ball.setx(-340) #sets the ball a little bit more center
+        
+        ball.dx *= -1 #and changes direction
     

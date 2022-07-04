@@ -1,7 +1,6 @@
 #this is a command line version of minesweer.
 
-from ast import Continue
-from Imports import * #created a file with lots of standing imports for python. will use this file to import all things importable if they are installed.
+import random 
 
 
 class GameBoard: #creates a class for the gameboard.
