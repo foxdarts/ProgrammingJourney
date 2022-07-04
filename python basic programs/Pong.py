@@ -157,7 +157,7 @@ while True:
         
         ball.dy *= -1 #and change its direction
         
-        winsound.PlaySound("ting.wav", winsound.SND_ASYNC) #adds a sound on border hit
+        winsound.PlaySound('ting.wav' , winsound.SND_ASYNC) #adds a sound on border hit
         
     if ball.ycor() < -290: #if the ball hits the lower boarder
         
@@ -165,7 +165,7 @@ while True:
         
         ball.dy *= -1 #and change its direction
         
-        winsound.PlaySound("ting.wav", winsound.SND_ASYNC) #adds a sound on border hit
+        winsound.PlaySound('ting.wav' , winsound.SND_ASYNC) #adds a sound on border hit
         
     if ball.xcor() > 390: #if the ball scores a point
         
@@ -201,7 +201,7 @@ while True:
         
         ball.dx *= -1 #and changes direction
         
-        winsound.PlaySound("Paddle.wav", winsound.SND_ASYNC) #adds a sound on paddle hit.
+        winsound.PlaySound('Paddle.wav', winsound.SND_ASYNC) #adds a sound on paddle hit.
     
     
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_L.ycor() + 40 and ball.ycor() > paddle_L.ycor() - 40): #if the ball hits the paddle area and isnt behind the paddle
@@ -210,5 +210,5 @@ while True:
         
         ball.dx *= -1 #and changes direction
         
-        winsound.PlaySound("Paddle.wav", winsound.SND_ASYNC) #adds a sound on paddle hit.
+        winsound.PlaySound('Paddle.wav', winsound.SND_ASYNC) #adds a sound on paddle hit.
     
