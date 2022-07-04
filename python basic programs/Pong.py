@@ -1,7 +1,7 @@
 #this is a pong game wit ha turtle window!!
 
-import turtle
-
+import turtle #creates a turtle window and allows configuration
+import winsound #allows interaction with the windows sound library
 
 
 Game_Window = turtle.Screen() #generates the standalone window in which we can play pong!
@@ -157,11 +157,15 @@ while True:
         
         ball.dy *= -1 #and change its direction
         
+        winsound.PlaySound("ting.wav", winsound.SND_ASYNC) #adds a sound on border hit
+        
     if ball.ycor() < -290: #if the ball hits the lower boarder
         
         ball.sety(-290) #set the ball to the lower limit
         
         ball.dy *= -1 #and change its direction
+        
+        winsound.PlaySound("ting.wav", winsound.SND_ASYNC) #adds a sound on border hit
         
     if ball.xcor() > 390: #if the ball scores a point
         
@@ -196,6 +200,8 @@ while True:
         ball.setx(340) #sets the ball a little bit more center
         
         ball.dx *= -1 #and changes direction
+        
+        winsound.PlaySound("Paddle.wav", winsound.SND_ASYNC) #adds a sound on paddle hit.
     
     
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_L.ycor() + 40 and ball.ycor() > paddle_L.ycor() - 40): #if the ball hits the paddle area and isnt behind the paddle
@@ -203,4 +209,6 @@ while True:
         ball.setx(-340) #sets the ball a little bit more center
         
         ball.dx *= -1 #and changes direction
+        
+        winsound.PlaySound("Paddle.wav", winsound.SND_ASYNC) #adds a sound on paddle hit.
     

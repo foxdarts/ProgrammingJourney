@@ -16,6 +16,7 @@ rock, paper, scissors - play against the computer in RPS!
 hangman - play a game of hangman using the provided word list!
 tictactoe - play tictactoe with logic! includes a unbeatable computer palyer using minmax eo ensure it doenst lose.
 Minesweeper - command line version with selectable board size and number of bombs!
+Pong - use turtles to paly pong. w/s for left, Up/Down for right.
 
 
 BinarySearch - basics showing binary search

@@ -59,7 +59,7 @@ class GameBoard: #creates a class for the gameboard.
                 
                 if self.GBoard[r][c] == "*": #if there is a bomb
                     
-                    Continue #dont do anything
+                    continue #dont do anything
                 
                 self.GBoard[r][c] = self.Display_neighbor_bomb(r, c) #if there isnt a bomb tell us how many bombs are touching this spot
                 
