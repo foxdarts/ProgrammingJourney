@@ -319,9 +319,7 @@ def main(): #main game running
             
             if GSnake.body[x].position in list(map(lambda z:z.position, GSnake.body[x + 1:])): #formula for getting the snake parts and keeping them as a list for refrence.
                 
-                print("Total length: ", len(GSnake.body))
-                
-                Message_box("Game Over", "up for another round?")
+                Message_box("Game Over", f"your score was {len(GSnake.body)}\nup for another round?")
                 
                 GSnake.reset((10, 10))
                 
