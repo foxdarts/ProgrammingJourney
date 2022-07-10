@@ -4,7 +4,7 @@ this is a repo for me to use to store code and learn the workings of github.
 
 so far i think it is going ok  6.26.2022
 
-the CTU School Programs folder is filled with subfolders coresponding to classes taken during pursuit of my Bachelor of Science - computer Science(software engineering)
+The CTU School Programs folder is filled with subfolders coresponding to classes taken during pursuit of my Bachelor of Science - Computer Science(software engineering)
 
 for python programming codes hand written by yours truly, thats me, see the collapbisle python section.  these programs were written while following tutorials to get a sense for python coding.
 
@@ -23,6 +23,7 @@ for javascript programming see the javascript collapsible section!
         * tictactoe - play tictactoe with logic! includes a unbeatable computer palyer using minmax eo ensure it doenst lose.
         * Minesweeper - command line version with selectable board size and number of bombs!
         * Pong - use turtles to paly pong. w/s for left, Up/Down for right.
+        * Snake - play a block snake game with arrow keys.
 
     2. AI learning
         * BinarySearch - basics showing binary search
@@ -33,9 +34,8 @@ for javascript programming see the javascript collapsible section!
   <summary>JavaScript!</summary>
   
   ## Javascript programs so far
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  1. Games
+    * Rock Paper Scissors! - paly against teh computer random generated results.
+    * Memory Game! - flip tiles to view pictures underneath. match them to clear the board.
 </details>
 
