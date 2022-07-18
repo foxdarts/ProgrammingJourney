@@ -15,4 +15,4 @@ print("View count: ", YTVideo.views)
 
 YTD = YTVideo.streams.get_highest_resolution() #chooses the highest resolution ffrom available streams for the video
 
-YTD.download('E:\movies') #place where you want the download video to go in quotes in here.
+YTD.download("E:\movies\Python youtube Downloads") #place where you want the download video to go in quotes in here.
