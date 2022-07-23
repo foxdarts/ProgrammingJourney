@@ -1,6 +1,6 @@
 #this is a program that allows you to download a video from youtube for use offline.
 
-from pytube import YouTube
+from pytube import YouTube #python has a youtube integration! awesome
 
 from sys import argv #allows the system to interact with the command line to get the link we give it
 
