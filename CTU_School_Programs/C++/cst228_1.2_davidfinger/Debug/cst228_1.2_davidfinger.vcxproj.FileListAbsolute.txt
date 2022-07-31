@@ -1,0 +1,2 @@
+C:\Users\foxsq\OneDrive\Documents\ctu school stuff\C++\cst228_1.2_davidfinger\Debug\cst228_1.2_davidfinger.exe
+C:\Users\foxsq\OneDrive\Documents\ctu school stuff\C++\cst228_1.2_davidfinger\Debug\cst228_1.2_davidfinger.pdb

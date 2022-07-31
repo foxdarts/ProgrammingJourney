@@ -1,0 +1,5 @@
+﻿  cs288_U2.1_DavidFinger.cpp
+C:\Users\foxsq\OneDrive\Documents\ctu school stuff\C++\cs288_U2.1_DavidFinger\cs288_U2.1_DavidFinger.cpp(9,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\foxsq\OneDrive\Documents\ctu school stuff\C++\cs288_U2.1_DavidFinger\cs288_U2.1_DavidFinger.cpp(18,25): error C2079: 'creature' uses undefined class 'vertebrates'
+C:\Users\foxsq\OneDrive\Documents\ctu school stuff\C++\cs288_U2.1_DavidFinger\cs288_U2.1_DavidFinger.cpp(27,10): error C2065: 'Bonyskeleton': undeclared identifier
+C:\Users\foxsq\OneDrive\Documents\ctu school stuff\C++\cs288_U2.1_DavidFinger\cs288_U2.1_DavidFinger.cpp(27,25): error C2065: 'Brain': undeclared identifier
