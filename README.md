@@ -11,6 +11,28 @@ for python programming codes hand written by yours truly, thats me, see the coll
 for javascript programming see the javascript collapsible section!
 
 <details>
+    <summary>CTU Schoolwork</summary>
+
+## CTU Schoolwork courses
+    1. Big Data Anylytics
+        * Unit 2 - Tweet empty spcae remover
+        * Unit 3 - Dictionary creation with keys
+        * Unit 4 - AI teaching and testing using diabetes data
+        * Unit 5 - KnearestNeighbors using zipcode demographics
+
+    2. C++
+        * 
+
+    3. Computer Algorithms
+        * 
+
+    4. Data Structures
+
+
+</details>
+
+
+<details>
     <summary>Python!</summary>
 
 ## Python programs so far:
@@ -27,6 +49,12 @@ for javascript programming see the javascript collapsible section!
 
     2. AI learning
         * BinarySearch - basics showing binary search
+
+    3. Everyday use projects
+        * Youtube video downloader
+
+    4. Weekend projects
+        * july 18 - 
 
 </details>
 
