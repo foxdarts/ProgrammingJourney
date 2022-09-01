@@ -16,7 +16,7 @@ class Hourly(Emp):
     def calcSal(self):
         self.hoursWorked = input("How many hours does the person work each week?")
         self.payRate = input("Pay rate:")
-        self.salary = int(self.hoursWorked)*float(self.payRate)*52
+        self.salary = float(self.hoursWorked)*float(self.payRate)*52
 
 class Yearly(Emp):
     def __init__(self, empname, employeeID):
