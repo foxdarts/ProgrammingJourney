@@ -64,8 +64,9 @@ for javascript programming see the javascript collapsible section!
   <summary>JavaScript!</summary>
   
   ## Javascript programs so far
-  1. Games
-    * Rock Paper Scissors! - play against teh computer random generated results.
-    * Memory Game! - flip tiles to view pictures underneath. match them to clear the board.
+    1. Games
+        * Rock Paper Scissors! - play against teh computer random generated results.
+        * Memory Game! - flip tiles to view pictures underneath. match them to clear the board.
+        * Connect 4 - standard connect 4 game
 </details>
 
