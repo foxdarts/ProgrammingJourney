@@ -49,9 +49,11 @@ for javascript programming see the javascript collapsible section!
 
     2. AI learning
         * BinarySearch - basics showing binary search
+        * RidgeRegression - basic ridge regression to use on dataframes
 
     3. Everyday use projects
         * Youtube video downloader
+        * Finance Automation
 
     4. Weekend projects
         * july 18 - 
