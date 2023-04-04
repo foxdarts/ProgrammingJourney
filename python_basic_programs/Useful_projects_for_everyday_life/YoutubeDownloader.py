@@ -6,4 +6,4 @@ link = "https://www.youtube.com/watch?v=Etl5T1nTyZY" #place link between quotes
 
 YTVideo =  pytube.YouTube(link)
 
-YTD = YTVideo.streams.get_highest_resolution().download("E:\movies\Python youtube Downloads") #chooses the highest resolution ffrom available streams for the video
+YTVideo.streams.get_highest_resolution().download("E:\movies\Python youtube Downloads") #chooses the highest resolution ffrom available streams for the video
