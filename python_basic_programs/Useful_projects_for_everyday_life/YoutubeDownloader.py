@@ -1,9 +1,11 @@
 #this is a program that allows you to download a video from youtube for use offline.
 
-import pytube
+from pytube import YouTube
 
-link = "https://www.youtube.com/watch?v=Etl5T1nTyZY" #place link between quotes
+link = input("link: ") #place link between quotes
 
-YTVideo =  pytube.YouTube(link)
+yt = YouTube(link)
 
-YTVideo.streams.get_highest_resolution().download("E:\movies\Python youtube Downloads") #chooses the highest resolution ffrom available streams for the video
+video = yt.streams.get_highest_resolution()
+video.download("E:\movies\Python youtube Downloads")
+print("done")
