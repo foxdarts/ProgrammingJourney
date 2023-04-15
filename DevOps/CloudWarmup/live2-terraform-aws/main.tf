@@ -23,7 +23,7 @@ terraform {
 
 provider "aws" {
 
-    region = "us-east-2"
+    region = "us-east-2" #whatever server you want to run resources on
 
 }
 
