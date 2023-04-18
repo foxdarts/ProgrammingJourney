@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>50</y>
+      <w>1060</w>
+      <h>830</h>
+    </coordinates>
+    <panel_attributes>Amazon.com
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>230</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Login
+--
++Username():void
++Password():void
+-Order Tracking(): void
+-Product recomendation():void
+-Review Purchases(): void
+-Reciently Viewed(): void
++Help and Settings(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>110</y>
+      <w>260</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Navigation Bar
+--
++Trending(): void
++Digital Content(): void
++Section Breakdown(): void
++Programs and features(): void
+-Help and Settings(): Requires Login
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>400</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Search Bar
+--
++Product lookup(): void
++Section Breakdown(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>620</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Product Modules
+--
++Product Displays(): void
++Deal of the Day(): void
++Video Promotion(): void
+-Recommended Products(): Requires Login
+-Recently Viewed(): Requires Login
+-Review Purchases(): Requires Login</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>410</y>
+      <w>570</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>490.0;10.0;490.0;250.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>150</y>
+      <w>300</w>
+      <h>530</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;280.0;10.0;280.0;510.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>220</y>
+      <w>110</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+</diagram>

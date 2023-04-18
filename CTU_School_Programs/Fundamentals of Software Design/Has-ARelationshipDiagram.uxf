@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>50</y>
+      <w>300</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Web Interface
+--
+-Amazon.com
+--
+Responsibilities
+-- hold inventory lists of products for query
+-- allows display of products
+-- allows searching within products by keyword</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>330</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Search Bar
+--
++Keyword input(): takes User input
+and links keywords for use in information retrieval</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>230</y>
+      <w>90</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>290</x>
+      <y>410</y>
+      <w>530</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>A Webinterface that shows products for a corporation shares a Has-A Relationship 
+with the search bar that users use to browse for specific product within that 
+web interface environment.
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

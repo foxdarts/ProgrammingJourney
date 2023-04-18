@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>360</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Shopping Cart
+--
+State: Empty
+-nothing exists within cart</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>360</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Shopping Cart
+--
+State: Not empty
+-Displays items added to cart as well as cost of item, total cost of cart, and number of items.
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>360</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Shopping Cart
+--
+State: Empty
+-Upon order being placed all items within cart are moved to ordered package and the cart returns to empty state.
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>240</y>
+      <w>260</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>State Changed to Not Empty</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>380</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>230</y>
+      <w>260</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>State Changed to Empty</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>420</y>
+      <w>180</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>80</x>
+      <y>560</y>
+      <w>920</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Shopping cart state diagram.  cart starts in an empty state. state change happens when user adds items to the cart. this results in the class updating to NotEmpty state and shows the total number of items, cost of each items, total cost of all items.  upon placing an order the cart state returns to empty.  all items that were in the cart move to an order package.
+bg=blue
+fg=white
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

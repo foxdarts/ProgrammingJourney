@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>160</y>
+      <w>190</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Search engine
+--
+state: Idle
+-can accept user input but wont perform action until submitted
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>160</y>
+      <w>180</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Search Engine
+--
+state: searching
+-takes user input and uses keywords to compair them to inventory lists for common entrys
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>160</y>
+      <w>180</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Seacrh Engine
+--
+State: Displaying
+-Displays all items from inventorylist that share keywords from user input. state returns to Idle at compleation
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>210</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>220</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>60</y>
+      <w>270</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>Action Taken:
+user submitted keywords for search
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>780</x>
+      <y>50</y>
+      <w>220</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>Search Results</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>130</x>
+      <y>490</y>
+      <w>890</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>State Diagram.  search engine stays in idle state until user enters keywords for search and hits return. this turns the search engine into searching mode that takes the keywords inputted and compairs them to the keywords listed in the inventory lists of teh website.  once all keywords have been compaired to each item in the inventory list, the serach engine displays the results starting with the ones that match the most keywords entered. the search engine returns to a idle state once displayed results are shown
+bg=blue
+fg=white
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
