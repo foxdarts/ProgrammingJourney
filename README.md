@@ -24,9 +24,39 @@ for javascript programming see the javascript collapsible section!
         * 
 
     3. Computer Algorithms
-        * 
+        * 2.1 - Quicksort using pivots
+        * 2.2 - Binary Sort
+        * 3.1 - Inorder and Preorder node traversal
+        * 3.2 - Graphed shortest path transversal
+        * 4.2 - Javascript linked list search
+        * 5.1 - Optimal Tree Search
+        * 5.2 - Traveling salesman problem solution
 
-    4. Data Structures
+    4. Computer Architecture
+        * Word Doc with final project
+
+    5. Fundamentals of Software Design
+        * Use Case diagrams for various programs
+
+    6. Intro to Data Structures
+        * Boarding Queue
+        * BookID system
+        * BubbleSort
+        * Customer list with address
+        * Employee salary calculations
+        * Node_ordering
+        * Node with linked lists
+        * Node Tree
+        * Root Node Sort
+
+    7. Intro to Website Design
+        * Entire final project for custom created resume website
+
+    8. Machine Learning
+        * Jupiter Notebooks using testtrainsplits for data sets
+
+    9. Object Oriented Methods
+        * use case diagrams
 
 
 </details>

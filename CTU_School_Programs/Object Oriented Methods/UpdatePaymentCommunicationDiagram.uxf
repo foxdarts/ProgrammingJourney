@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>150</x>
+      <y>110</y>
+      <w>240</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Customer
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>580</x>
+      <y>110</y>
+      <w>250</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>System
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1050</x>
+      <y>110</y>
+      <w>280</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Payment
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>150</x>
+      <y>390</y>
+      <w>1170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Communication between a customer and system(system and Payment) for update payment use case.  customer requests to update a payment, system asks for the paymentIden for update, customer supplies paymentIden, and system tells payment which paymentIden is being updated.  system asks customer for card number, customer supplies card number, and system overrides card number in payment.  system asks customar for ExpirationDate, customer supplies expirationDate, system overrides ExpirationDate in payment.  System asks customer for CVCNumber, Customer supplies CVCNumber, system overrides CVCNumber in payment.  payment tells system if payment update was succesful, system informs customer of payment update success or failure.  if payment update failure system prompts for reentry of information.
+bg=blue
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>120</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+1.0 UpdatePayment()
+1.2 PaymentIden(x)
+2.1 CadrNumber(x)
+3.1 ExpirationDate(x)
+4.1 CVCNumber(x)</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>120</y>
+      <w>250</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+1.3 PaymentIden(x)
+2.2 CardNumber(x)
+3.2 ExpirationDate(x)
+4.2 CVCNumber(x)</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>250</y>
+      <w>250</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+5.0.0 Payment Updated
+5.0.1 Payment Update Failure</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>250</y>
+      <w>220</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.1 PaymentIden
+2.0 CardNumber
+3.0 ExpirationDate
+4.0 CVCNumber
+5.1.0 Payment Updated
+5.1.1 Payment Update Failure
+5.1.2 Reenter Information</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+</diagram>

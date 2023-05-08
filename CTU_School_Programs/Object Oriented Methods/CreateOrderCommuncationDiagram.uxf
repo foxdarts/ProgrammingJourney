@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>140</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+1.0 CreateOrder()
+ * 1.1 AddItem()
+3.0 Checkout()
+5.0 PaymentIden()</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>70</x>
+      <y>150</y>
+      <w>100</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Customer
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>250</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+* 2.0 Details, total
+4.0 Total, PaymentMethod
+8.0 PaymentMessage</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>360</x>
+      <y>150</y>
+      <w>100</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>System
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>620</x>
+      <y>160</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>BankingSystem
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>160</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+6.0 Total, PaymentIden()</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>210</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+7.0 PaymentSuccess</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>220</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+7.1 Payment Failure</panel_attributes>
+    <additional_attributes>10.0;60.0;140.0;60.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>60</x>
+      <y>390</y>
+      <w>690</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Communictions between customer and system( system and bank) for CreateOrder Use case.  customer creates an order,  customer enters items into order, system returns with totoal and details, this repeats untill customer decides to apply checkout function.  system then replies with the total and asks for a payment method. customer selects payment method. system submits total and paymentmethod to the bank, bank returns processed or failure. system informs customer of payment method failure or success.
+bg=blue
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

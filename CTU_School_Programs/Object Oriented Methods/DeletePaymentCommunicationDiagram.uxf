@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>180</x>
+      <y>120</y>
+      <w>200</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>User
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>580</x>
+      <y>120</y>
+      <w>220</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>System
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1000</x>
+      <y>120</y>
+      <w>220</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Payment
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>130</y>
+      <w>230</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+1.0 DeletePayment()
+2.1 PaymentIden(x)
+3.2 DeletePayment(x)</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>130</y>
+      <w>230</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+2.2 PaymentIden(x)
+4.0 DeletePayment(x)
+</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>280</y>
+      <w>230</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+3.0 Payment(x)
+5.0.1 Payment Removed
+5.0.2 Payment Removal Failure</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>280</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+2.0 PaymentIden()
+3.1 Payment(x)
+5.1.0 Payment Removed
+5.1.1 Payment Removal Failure</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>180</x>
+      <y>390</y>
+      <w>1040</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Communications between a user and system (system and payment) for DeletePayment use case.  user requests DeletePayment, system asks user for paymentIden(), user supplies PaymentIden(x), system requests apymentIden(x) from payment.  payment supplies system with payment(x), system supplies user with Payment(x), user submits DeletePayment(x). System requests DeletePayment(x). Payment supplies ystem with Payment removed, or Payment removal Failure message, System Supplies User with payment removed, or payment removeal failure message.
+bg=blue
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

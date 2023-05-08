@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>130</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>250</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Manager
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>370</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Clerk
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>320</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Order
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>650</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_object: Class_
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>650</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_object: Class_
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>460</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Payment
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
