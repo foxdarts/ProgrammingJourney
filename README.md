@@ -12,7 +12,7 @@ for javascript programming see the javascript collapsible section!
 
 <details>
 
-    <summary>CTU Schoolwork</summary>
+   <summary> CTU Schoolwork </summary>
 
 ## CTU Schoolwork courses
 
@@ -66,7 +66,7 @@ for javascript programming see the javascript collapsible section!
 
 <details>
 
-    <summary>Python!</summary>
+   <summary>Python!</summary>
 
 ## Python programs so far:
 
@@ -109,7 +109,7 @@ for javascript programming see the javascript collapsible section!
 
 <details>
 
-    <summary>Devops</summary>
+   <summary>Devops</summary>
 
   ## DevOps Development
 
