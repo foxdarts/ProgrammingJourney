@@ -3,6 +3,7 @@
 this is a repo for me to use to store code and learn the workings of github.
 
 so far i think it is going ok  6.26.2022
+lots has been added and code base continues to improve 9.15.2023
 
 The CTU School Programs folder is filled with subfolders coresponding to classes taken during pursuit of my Bachelor of Science - Computer Science(software engineering)
 
