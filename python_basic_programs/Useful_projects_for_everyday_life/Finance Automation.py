@@ -7,7 +7,7 @@ import time
 
 
 
-MONTH = 'August' #this will be the month name that you will need to change every month.
+MONTH = 'January' #this will be the month name that you will need to change every month.
 
 file = f"WF_{MONTH}.csv" #this is the filename that you download from your financial institute.
 
