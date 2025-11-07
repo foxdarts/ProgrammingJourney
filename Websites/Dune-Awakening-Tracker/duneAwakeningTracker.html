@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dune: Awakening Objective Tracker</title>
+    <!-- Use the Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS to enable the max-height transition for collapsible panels */
+        /* Use a large max-height to ensure it can expand for any amount of content */
+        .transition-max-height {
+            transition-property: max-height;
+        }
+
+        /* Set the font for the entire body */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 p-4 min-h-screen">
+    <div id="app-root" class="w-full max-w-4xl mx-auto space-y-8">
+        <!-- The main application content will be rendered here by JavaScript -->
+    </div>
+
+    <script>
+        // Data structure for all the objectives and their schematic items
+        const initialObjectives = [
+            { id: 1, category: 'Jabal Eifrit', title: 'Beneath the Jumble', items: [{ name: 'Shock-sword', completed: false }, { name: 'Callie\'s Breaker', completed: false }, { name: 'Glutton\'s Drinker', completed: false }, { name: 'Old Sparky Mk3', completed: false }, { name: 'Seb\'s Kisser', completed: false }] },
+            { id: 2, category: 'Jabal Eifrit', title: 'Piter\'s Net', items: [{ name: 'Karak\'s Armor Set', completed: false }, { name: 'Way of the Lost', completed: false }, { name: 'Ripper', completed: false }] },
+            { id: 3, category: 'Jabal Eifrit', title: 'Imperial Testing Station No. 76', items: [{ name: 'Seb\'s Kisser', completed: false }, { name: 'Reaper Gloves', completed: false }] },
+            { id: 4, category: 'Jabal Eifrit', title: 'Khidr\'s Shadow', items: [{ name: 'The Inkvine Set', completed: false }, { name: 'Handheld Life Scanner Mk3', completed: false }] },
+            { id: 5, category: 'Jabal Eifrit', title: 'Hand of Khidr', items: [{ name: 'Emperor\'s Wings Mk3', completed: false }, { name: 'Filter Extractor Mk3', completed: false }, { name: 'Shock Gauntlets', completed: false }] },
+            { id: 6, category: 'Jabal Eifrit', title: 'Pinnacle Station (Vendor)', items: [{ name: 'Seb\'s Kisser', completed: false }, { name: 'Ripper', completed: false }, { name: 'Buggy Boots Mk3', completed: false }] },
+            { id: 7, category: 'Jabal Eifrit', title: 'Wreck of the Tisiphone (PvP)', items: [{ name: 'Karak\'s Set', completed: false }, { name: 'Zaal\'s Companion', completed: false }] },
+            { id: 8, category: 'Jabal Eifrit', title: 'Kel\'s Fallback', items: [{ name: 'Old Sparky Mk3', completed: false }, { name: 'Glutton Drinker', completed: false }] },
+            { id: 9, category: 'Hagga Rift', title: 'Rift Run Passage', items: [{ name: 'The Skin-lined Jacket', completed: false }, { name: 'Glutton\'s Bloodbag', completed: false }] },
+            { id: 10, category: 'Hagga Rift', title: 'The Gasp (Toxic Cave)', items: [{ name: 'Kel\'s Stillsuit Armor Set', completed: false }, { name: 'Compact Compactor Mk3', completed: false }] },
+            { id: 11, category: 'Hagga Rift', title: 'Wreck of Kytheria (PvP)', items: [{ name: 'Way of the Lost', completed: false }, { name: 'Zaal\'s Companion', completed: false }] },
+            { id: 12, category: 'Hagga Rift', title: 'The Spiral', items: [{ name: 'The Inkvine Armor', completed: false }, { name: 'Scanner Mk3', completed: false }] },
+            { id: 13, category: 'Hagga Rift', title: 'Arctus Cavern', items: [{ name: 'The Assassin\'s Rifle', completed: false }, { name: 'Handheld Life Scanner', completed: false }, { name: 'Inkvine Armor Set', completed: false }] },
+            { id: 14, category: 'Hagga Rift', title: 'The Weeping Chasm', items: [{ name: 'Kel\'s Stillsuit boots', completed: false }] },
+            { id: 15, category: 'Hagga Rift', title: 'CHOAM Mineral Facility #6', items: [{ name: 'Cutteray Mk3', completed: false }, { name: 'Old Sparky Mk3', completed: false }, { name: 'Callie\'s Breaker', completed: false }, { name: 'Focused Buggy Cutteray Mk3', completed: false }, { name: 'Glutton\'s Drinker', completed: false }, { name: 'Seb\'s Kisser', completed: false }, { name: 'Shock-sword', completed: false }] },
+            { id: 16, category: 'Hagga Rift', title: 'Testing Station No. 29', items: [{ name: 'The Artisan Disruptor Pistol', completed: false }, { name: 'Compact Compactor', completed: false }] },
+            { id: 17, category: 'Hagga Rift', title: 'Hidden Cave (above #29)', items: [{ name: 'Callie\'s Breaker', completed: false }, { name: 'Shock-sword', completed: false }] },
+            { id: 18, category: 'Vermillius Gap', title: 'Wreck of the Pallas', items: [{ name: 'Fila\'s Regret', completed: false }, { name: 'Legion Tattoo', completed: false }, { name: 'Mohandis Sandbike Engine Mk2', completed: false }, { name: 'Way of the Wanderer', completed: false }] },
+            { id: 19, category: 'Vermillius Gap', title: 'Miner\'s Watch', items: [{ name: 'Mendia\'s Armor Set', completed: false }, { name: 'Pseudo-Pulse-Sword', completed: false }] },
+            { id: 20, category: 'Vermillius Gap', title: 'Northwest Ironworks', items: [{ name: 'Iri\'s Gauntlets', completed: false }, { name: 'Old Sparky Mk2', completed: false }, { name: 'Scipio\'s Drinker', completed: false }] },
+            { id: 21, category: 'Vermillius Gap', title: 'Table of the Gods', items: [{ name: 'Buoyant Reaper Mk2', completed: false }, { name: 'Hajra Literjon Mk2', completed: false }, { name: 'Scipio\'s Bloodbag', completed: false }, { name: 'The Emperor\'s Wings Mk2', completed: false }] },
+            { id: 22, category: 'Vermillius Gap', title: 'Coils of the Wyrm', items: [{ name: 'Oathbreaker Armor Set', completed: false }] },
+            { id: 23, category: 'Vermillius Gap', title: 'Imperial Station No. 197', items: [{ name: 'Olef\'s Quickcutter', completed: false }, { name: 'Softstep Boots', completed: false }] },
+            { id: 24, category: 'Vermillius Gap', title: 'The Anomaly', items: [{ name: 'Compact Compactor Mk3', completed: false }, { name: 'Kel\'s Stillsuit Set', completed: false }] },
+            { id: 25, category: 'Eastern Shield Wall', title: 'Wreck of the Thistle', items: [{ name: 'Sapper\'s Cutter', completed: false }, { name: 'Vigor Extractor Mk3', completed: false }] },
+            { id: 26, category: 'Eastern Shield Wall', title: 'Wreck of the Solitude', items: [{ name: 'Fila\'s Regret', completed: false }, { name: 'The Emperor\'s Wings Mk2', completed: false }] },
+            { id: 27, category: 'Eastern Shield Wall', title: 'Harrowfall', items: [{ name: 'Hajj\'s Grip', completed: false }] },
+            { id: 28, category: 'Eastern Shield Wall', title: 'Wreck of the Iphigenia', items: [{ name: 'Olef\'s Quickcutter', completed: false }] },
+            { id: 29, category: 'Sheol', title: 'Wreck of the Pallas', items: [{ name: 'Hajra Literjon Mk3', completed: false }, { name: 'Sapper\'s Cutter', completed: false }, { name: 'Olef\'s Quickcutter', completed: false }] },
+            { id: 30, category: 'Sheol', title: 'Coils of the Wyrm', items: [{ name: 'Shai-Hulud\'s Grasp', completed: false }] },
+            { id: 31, category: 'Deep Desert', title: 'Harrowfall', items: [{ name: 'Compact Compactor Mk4', completed: false }, { name: 'Vigor Extractor Mk4', completed: false }] },
+            { id: 32, category: 'Deep Desert', title: 'Wreck of the Solitude', items: [{ name: 'Arrakis Scourge', completed: false }, { name: 'Fila\'s Regret', completed: false }] },
+            { id: 33, category: 'Deep Desert', title: 'Wreck of the Thistle', items: [{ name: 'Old Sparky Mk4', completed: false }, { name: 'Shai-Hulud\'s Grasp', completed: false }] },
+            { id: 34, category: 'Deep Desert', title: 'Wreck of the Iphigenia', items: [{ name: 'Old Sparky Mk4', completed: false }] },
+            { id: 35, category: 'Deep Desert', title: 'Unmarked Camp', items: [{ name: 'Hajj\'s Grip', completed: false }] },
+        ];
+
+        let state = {
+            objectives: [],
+            newObjectiveTitle: '',
+            openCategories: {},
+            activeView: 'tracker',
+        };
+
+        // DOM element references
+        let appRoot;
+
+        // --- State Management and Data Persistence ---
+
+        // Function to load state from local storage
+        function loadState() {
+            try {
+                const savedState = localStorage.getItem('dune-awakening-objectives');
+                if (savedState) {
+                    state.objectives = JSON.parse(savedState);
+                } else {
+                    state.objectives = initialObjectives;
+                }
+            } catch (error) {
+                console.error("Failed to load state from localStorage:", error);
+                state.objectives = initialObjectives;
+            }
+        }
+
+        // Function to save state to local storage
+        function saveState() {
+            try {
+                localStorage.setItem('dune-awakening-objectives', JSON.stringify(state.objectives));
+            } catch (error) {
+                console.error("Failed to save state to localStorage:", error);
+            }
+        }
+
+        // --- Core Application Logic ---
+
+        // Function to calculate the completion progress
+        function getProgress() {
+            let completedCount = 0;
+            let totalCount = 0;
+            state.objectives.forEach(obj => {
+                totalCount += obj.items.length;
+                completedCount += obj.items.filter(item => item.completed).length;
+            });
+            return totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+        }
+
+        // Function to toggle a single schematic item's completion status
+        function toggleItem(objectiveId, itemName) {
+            state.objectives = state.objectives.map(obj => {
+                if (obj.id === objectiveId) {
+                    const updatedItems = obj.items.map(item =>
+                        item.name === itemName ? { ...item, completed: !item.completed } : item
+                    );
+                    return { ...obj, items: updatedItems };
+                }
+                return obj;
+            });
+            saveState();
+            renderApp();
+        }
+
+        // Function to add a new custom objective
+        function addObjective(event) {
+            event.preventDefault();
+            if (!state.newObjectiveTitle) return;
+
+            const newObjective = {
+                id: Date.now(),
+                title: state.newObjectiveTitle,
+                category: 'Custom',
+                items: [{ name: state.newObjectiveTitle, completed: false }],
+            };
+
+            state.objectives.push(newObjective);
+            state.newObjectiveTitle = '';
+            state.openCategories['Custom'] = true;
+            saveState();
+            renderApp();
+        }
+
+        // Function to delete an objective
+        function deleteObjective(id) {
+            state.objectives = state.objectives.filter(obj => obj.id !== id);
+            saveState();
+            renderApp();
+        }
+
+        // Function to toggle the collapsible state of a category panel
+        function toggleCategory(category) {
+            state.openCategories[category] = !state.openCategories[category];
+            renderApp();
+        }
+
+        // Function to switch between the tracker and map views
+        function setActiveView(view) {
+            state.activeView = view;
+            renderApp();
+        }
+
+        // --- UI Rendering and Event Handling ---
+
+        // Main render function to build and display the entire UI
+        function renderApp() {
+            // Group objectives by their category for rendering
+            const groupedObjectives = state.objectives.reduce((acc, obj) => {
+                (acc[obj.category] = acc[obj.category] || []).push(obj);
+                return acc;
+            }, {});
+
+            // Generate the HTML for the progress bar
+            const progress = getProgress();
+            const progressBarHtml = `
+                <section class="bg-gray-800 rounded-full h-10 w-full shadow-lg border border-gray-700 p-1">
+                    <div class="relative h-full bg-gray-700 rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-500 rounded-full transition-all duration-500 ease-in-out" style="width: ${progress}%"></div>
+                        <span class="absolute inset-0 flex items-center justify-center font-bold text-sm text-gray-900">${progress.toFixed(0)}% Complete</span>
+                    </div>
+                </section>
+            `;
+
+            // Generate the HTML for the form to add a new objective
+            const addFormHtml = `
+                <section class="bg-gray-800 rounded-2xl shadow-lg border border-gray-700 p-6">
+                    <h3 class="text-xl font-bold text-yellow-300 mb-4">Add a New Objective</h3>
+                    <form id="add-objective-form" class="space-y-4">
+                        <div>
+                            <label for="objective-title" class="block text-sm font-medium text-gray-400">Title</label>
+                            <input
+                                id="objective-title"
+                                type="text"
+                                value="${state.newObjectiveTitle}"
+                                placeholder="e.g., Craft a Stillsuit"
+                                class="mt-1 block w-full bg-gray-700 text-gray-200 border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:ring-yellow-500 focus:border-yellow-500"
+                                required
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition-colors"
+                        >
+                            Add Objective
+                        </button>
+                        <p class="text-xs text-gray-500 italic mt-2">Custom objectives are added as a single item and do not have a nested checklist.</p>
+                    </form>
+                </section>
+            `;
+
+            // Generate the HTML for the objective categories and their items
+            const objectivesHtml = Object.entries(groupedObjectives).map(([category, objectives]) => {
+                const completedItems = objectives.reduce((sum, obj) => sum + obj.items.filter(item => item.completed).length, 0);
+                const totalItems = objectives.reduce((sum, obj) => sum + obj.items.length, 0);
+                const isExpanded = state.openCategories[category] ? 'max-h-[10000px]' : 'max-h-0';
+                const rotateIcon = state.openCategories[category] ? 'rotate-180' : '';
+
+                const itemsHtml = objectives.map(obj => `
+                    <li class="p-6 flex flex-col space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-bold text-gray-200">${obj.title}</h3>
+                            <button class="p-1 rounded-full text-gray-500 hover:text-red-500 transition-colors delete-objective" data-id="${obj.id}" aria-label="Delete objective">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 112 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="space-y-2 pl-4 border-l-2 border-gray-700">
+                            ${obj.items.map((item, index) => `
+                                <li class="flex items-start space-x-4 transition-colors duration-200">
+                                    <input
+                                        type="checkbox"
+                                        ${item.completed ? 'checked' : ''}
+                                        class="mt-1 w-6 h-6 text-yellow-500 rounded-md border-gray-600 bg-gray-700 cursor-pointer focus:ring-yellow-500 focus:border-yellow-500 toggle-item"
+                                        data-objective-id="${obj.id}"
+                                        data-item-name="${item.name}"
+                                    />
+                                    <span class="flex-1 text-sm font-medium ${item.completed ? 'text-gray-500 line-through' : 'text-gray-400'}">
+                                        ${item.name}
+                                    </span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </li>
+                `).join('');
+
+                return `
+                    <div class="bg-gray-800 rounded-2xl shadow-lg border border-gray-700 overflow-hidden">
+                        <button class="w-full text-left p-6 font-semibold text-xl text-yellow-300 flex justify-between items-center hover:bg-gray-700 transition-colors toggle-category" data-category="${category}">
+                            <span>${category} (${completedItems}/${totalItems})</span>
+                            <svg class="h-6 w-6 transform transition-transform duration-300 ${rotateIcon}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="transition-max-height duration-500 ease-in-out overflow-hidden ${isExpanded}">
+                            <ul class="divide-y divide-gray-700">
+                                ${itemsHtml}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Build the final HTML content based on the active view
+            let contentHtml = '';
+            if (state.activeView === 'tracker') {
+                contentHtml = `
+                    ${progressBarHtml}
+                    ${addFormHtml}
+                    <section class="space-y-6">${objectivesHtml}</section>
+                `;
+            } else if (state.activeView === 'map') {
+                contentHtml = `
+                    <section class="w-full h-[80vh] flex items-center justify-center bg-gray-800 rounded-2xl shadow-lg border border-gray-700 overflow-hidden">
+                        <iframe
+                            title="Dune: Awakening Interactive Map"
+                            src="https://mapgenie.io/dune-awakening/maps/arrakis"
+                            class="w-full h-full border-0 rounded-2xl"
+                            allowfullscreen
+                        ></iframe>
+                    </section>
+                `;
+            }
+
+            // Set the content and attach event listeners
+            appRoot.innerHTML = `
+                <header class="text-center py-8">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-400 drop-shadow-md tracking-wider">
+                        Dune: Awakening
+                    </h1>
+                    <h2 class="text-xl md:text-2xl mt-2 text-gray-300 font-medium">Objective Tracker</h2>
+                </header>
+                
+                <div class="flex justify-center bg-gray-800 rounded-full p-1 border border-gray-700">
+                    <button class="flex-1 py-2 px-4 rounded-full font-medium transition-colors ${state.activeView === 'tracker' ? 'bg-yellow-500 text-gray-900 shadow-md' : 'text-gray-400 hover:bg-gray-700'}" onclick="setActiveView('tracker')">
+                        Objective Tracker
+                    </button>
+                    <button class="flex-1 py-2 px-4 rounded-full font-medium transition-colors ${state.activeView === 'map' ? 'bg-yellow-500 text-gray-900 shadow-md' : 'text-gray-400 hover:bg-gray-700'}" onclick="setActiveView('map')">
+                        Interactive Map
+                    </button>
+                </div>
+
+                ${contentHtml}
+
+                <footer class="text-center text-sm text-gray-500 py-6">
+                    <p>Fictional objectives for a fictional tracker. Not affiliated with the game or its developers.</p>
+                </footer>
+            `;
+
+            // Attach event listeners to the dynamically created elements
+            if (state.activeView === 'tracker') {
+                document.getElementById('add-objective-form').addEventListener('submit', addObjective);
+                document.getElementById('objective-title').addEventListener('input', (e) => {
+                    state.newObjectiveTitle = e.target.value;
+                });
+                document.querySelectorAll('.toggle-category').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        toggleCategory(e.currentTarget.dataset.category);
+                    });
+                });
+                document.querySelectorAll('.toggle-item').forEach(checkbox => {
+                    checkbox.addEventListener('change', (e) => {
+                        const objectiveId = parseInt(e.currentTarget.dataset.objectiveId);
+                        const itemName = e.currentTarget.dataset.itemName;
+                        toggleItem(objectiveId, itemName);
+                    });
+                });
+                document.querySelectorAll('.delete-objective').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const objectiveId = parseInt(e.currentTarget.dataset.id);
+                        deleteObjective(objectiveId);
+                    });
+                });
+            }
+        }
+
+        // Initialize the application when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            appRoot = document.getElementById('app-root');
+            loadState();
+            renderApp();
+        });
+
+    </script>
+</body>
+</html>
